@@ -90,6 +90,12 @@ body {
     font-size: 3.5rem;
     text-align: center;
     margin: 1.5rem 0 0.5rem;
+    background: linear-gradient(270deg, #96e918, #db1d59, #cb7b19); /* Water-like gradient */
+    background-size: 300% 100%; /* Make the gradient larger for animation */
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text; /* Clip the background to the text */
+    color: transparent; /* Make the text color transparent */
+    animation: waterAnimation 1s linear infinite; /* Animation */
 }
 
 .event-title .highlight {
@@ -108,8 +114,22 @@ body {
     font-size: 1.875rem;
     text-align: center;
     margin: 1rem 0 1.5rem;
+    background: linear-gradient(270deg, #96e918, #2d6fc1, #b3fc21); /* Water-like gradient */
+    background-size: 300% 100%; /* Make the gradient larger for animation */
+    -webkit-background-clip: text; /* For Safari */
+    background-clip: text; /* Clip the background to the text */
+    color: transparent; /* Make the text color transparent */
+    animation: waterAnimation 2s linear infinite; /* Animation */
 }
 
+@keyframes waterAnimation {
+    0% {
+        background-position: 0% 50%; /* Start position */
+    }
+    100% {
+        background-position: 100% 50%; /* End position */
+    }
+}
 .event-description {
     max-width: 42rem;
     margin: 0 auto 2rem;
@@ -119,14 +139,17 @@ body {
 }
 
 .cta-button {
+    align-items: center;
     display: inline-block;
     background: var(--color-orange-500);
     color: white;
     padding: 0.75rem 2rem;
     border-radius: 9999px;
     text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
+    font-weight:700;
+    /* transition: all 1s; */
+    position: absolute;
+    right: 18cm;
 }
 
 .cta-button:hover {
@@ -136,27 +159,6 @@ body {
 }
 
 /* Event Details Section */
-.event-details {
-    padding: 4rem 0;
-    background: var(--color-gray-50);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.25rem;
-    margin-bottom: 3rem;
-}
-
-.section-title .highlight {
-    color: var(--color-purple-700);
-}
-
-.details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 4rem;
-}
 
 .detail-card {
     background: white;
@@ -164,6 +166,7 @@ body {
     border-radius: 1rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
+    text-align: center;
 }
 
 .detail-card:hover {
@@ -171,16 +174,38 @@ body {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
 }
 
-.icon-wrapper {
-    background: var(--color-purple-100);
-    color: var(--color-purple-700);
-    width: 3rem;
-    height: 3rem;
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
+.event-details {
+    background: #fff;
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
     justify-content: center;
-    margin-bottom: 1rem;
+    padding-top: 20px;
+}
+
+.detail-card {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.icon-wrapper {
+    font-size: 2rem;
+    color: #ff5733;
+    margin-bottom: 10px;
 }
 
 /* Prizes Section */
@@ -223,6 +248,10 @@ body {
 .prize-card.first:hover {
     transform: scale(1.15);
 }
+.prize-card.first { background: #ffd700; }
+.prize-card.second { background: #c0c0c0; }
+.prize-card.third { background: #cd7f32; }
+
 
 /* Registration Section */
 .registration {
