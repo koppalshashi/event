@@ -539,7 +539,7 @@ body {
 /* Small devices (mobile phones, 480px and down) */
 @media (max-width: 480px) {
     html {
-        font-size: 12px;
+        font-size: 17px;
     }
     .container {
         padding: 0 0.75rem;
