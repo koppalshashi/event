@@ -270,7 +270,7 @@ body {
 .registration {
     background: linear-gradient(135deg, var(--color-purple-900), var(--color-purple-800));
     color: white;
-    padding: 4rem 1rem;
+    padding: 3rem 0.3rem;
     position: relative;
 }
 
@@ -282,7 +282,7 @@ body {
     margin-top: 2.5rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 0.5rem;
     justify-content: center;
 }
 
@@ -299,7 +299,7 @@ body {
     padding: 1.5rem;
     border-radius: 0.5rem;
     width: 12rem;
-    height: 12rem;
+    height: 11rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -352,11 +352,11 @@ body {
 }
 
 .note {
-    display: flex;
+    /* display: flex; */
     align-items: start;
     gap: 0.5rem;
     margin-top: 1.5rem;
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: var(--color-purple-200);
 }
 
@@ -364,15 +364,19 @@ body {
 .coordinators {
     padding: 4rem 1rem;
     background: var(--color-gray-50);
+    text-align: center;
 }
 
 .coordinators-grid {
-    max-width: 64rem;
+    max-width: 69rem;
     margin: 0 auto;
+    text-align: center;
 }
 
 .coordinator-section {
     margin-bottom: 2.5rem;
+    text-align: center;
+    justify-content: center;
 }
 
 .section-header {
@@ -390,7 +394,7 @@ body {
 }
 
 .coordinator-card {
-    background: white;
+    background: rgb(237, 234, 234);
     padding: 1.5rem;
     border-radius: 1rem;
     display: flex;
@@ -398,6 +402,8 @@ body {
     gap: 1rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: all 0.3s;
+    text-align: center;
+    justify-content: center;
 }
 
 .coordinator-card:hover {
@@ -511,7 +517,7 @@ body {
 /* Medium devices (tablets, 768px and down) */
 @media (max-width: 768px) {
     html {
-        font-size: 14px;
+        font-size: 30px;
     }
     .event-title {
         font-size: 2.5rem;
