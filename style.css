@@ -26,6 +26,7 @@
 
 html {
     scroll-behavior: smooth;
+    font-size: 16px; /* base font size */
 }
 
 body {
@@ -42,40 +43,37 @@ body {
 
 /* Hero Section */
 .hero {
-    /* background: linear-gradient(to right, var(--color-purple-800), var(--color-purple-900)); */
     background: 
-        linear-gradient(rgba(172, 148, 192, 0.7), rgba(88, 28, 135, 0.7)), /* semi-transparent overlay for readability */
+        linear-gradient(rgba(172, 148, 192, 0.7), rgba(88, 28, 135, 0.7)),
         url('image2.png') no-repeat center center/cover;
     color: white;
-    padding: 4rem 0;
+    padding: 4rem 1rem;
     position: relative;
     overflow: hidden;
 }
 
-.hero::before {
+.hero::before, .hero::after {
     content: '';
     position: absolute;
+    border-radius: 50%;
+    filter: blur(2rem);
+    opacity: 0.2;
+}
+
+.hero::before {
     top: -4rem;
     left: -4rem;
     width: 8rem;
     height: 8rem;
     background: var(--color-purple-500);
-    opacity: 0.2;
-    border-radius: 50%;
-    filter: blur(2rem);
 }
 
 .hero::after {
-    content: '';
-    position: absolute;
     top: 5rem;
     right: -4rem;
     width: 12rem;
     height: 12rem;
     background: var(--color-orange-500);
-    opacity: 0.2;
-    border-radius: 50%;
-    filter: blur(2rem);
 }
 
 .college-logo {
@@ -84,18 +82,21 @@ body {
     justify-content: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
+    flex-wrap: wrap;
 }
 
 .event-title {
     font-size: 3.5rem;
     text-align: center;
     margin: 1.5rem 0 0.5rem;
-    background: linear-gradient(270deg, #96e918, #db1d59, #cb7b19); /* Water-like gradient */
-    background-size: 300% 100%; /* Make the gradient larger for animation */
-    -webkit-background-clip: text; /* For Safari */
-    background-clip: text; /* Clip the background to the text */
-    color: transparent; /* Make the text color transparent */
-    animation: waterAnimation 1s linear infinite; /* Animation */
+    background: linear-gradient(270deg, #96e918, #db1d59, #cb7b19);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: waterAnimation 1s linear infinite;
+    line-height: 1.1;
+    word-wrap: break-word;
 }
 
 .event-title .highlight {
@@ -108,58 +109,65 @@ body {
     justify-content: center;
     gap: 0.25rem;
     color: var(--color-purple-200);
+    flex-wrap: wrap;
+    font-size: 1rem;
 }
 
 .event-subtitle {
     font-size: 1.875rem;
     text-align: center;
     margin: 1rem 0 1.5rem;
-    background: linear-gradient(270deg, #96e918, #2d6fc1, #b3fc21); /* Water-like gradient */
-    background-size: 300% 100%; /* Make the gradient larger for animation */
-    -webkit-background-clip: text; /* For Safari */
-    background-clip: text; /* Clip the background to the text */
-    color: transparent; /* Make the text color transparent */
-    animation: waterAnimation 2s linear infinite; /* Animation */
+    background: linear-gradient(270deg, #96e918, #2d6fc1, #b3fc21);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: waterAnimation 2s linear infinite;
+    line-height: 1.2;
+    padding: 0 0.5rem;
 }
 
 @keyframes waterAnimation {
     0% {
-        background-position: 0% 50%; /* Start position */
+        background-position: 0% 50%;
     }
     100% {
-        background-position: 100% 50%; /* End position */
+        background-position: 100% 50%;
     }
 }
+
 .event-description {
     max-width: 42rem;
     margin: 0 auto 2rem;
     text-align: center;
     color: var(--color-purple-100);
     font-size: 1.125rem;
+    padding: 0 1rem;
 }
 
+/* Adjust cta-button to be responsive and positioned better */
 .cta-button {
-    align-items: center;
     display: inline-block;
     background: var(--color-orange-500);
     color: white;
     padding: 0.75rem 2rem;
     border-radius: 9999px;
     text-decoration: none;
-    font-weight:700;
-    /* transition: all 1s; */
-    position: absolute;
-    right: 18cm;
+    font-weight: 700;
+    /* Positioning relative to container and flexible for small screens */
+    position: static;
+    margin: 0 auto;
+    display: block;
+    max-width: fit-content;
 }
 
 .cta-button:hover {
     background: var(--color-orange-600);
     transform: scale(1.05);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 /* Event Details Section */
-
 .detail-card {
     background: white;
     padding: 1.5rem;
@@ -176,7 +184,7 @@ body {
 
 .event-details {
     background: #fff;
-    padding: 50px 0;
+    padding: 50px 1rem;
 }
 
 .section-title {
@@ -198,10 +206,11 @@ body {
     background: #f9f9f9;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
 }
 
+/* Icon styles */
 .icon-wrapper {
     font-size: 2rem;
     color: #ff5733;
@@ -236,28 +245,32 @@ body {
 }
 
 .prize-card.first {
-    background: linear-gradient(to bottom, var(--color-orange-100), var(--color-yellow-200));
+    background: #ffd700;
     transform: scale(1.1);
+}
+
+.prize-card.second {
+    background: #c0c0c0;
+}
+
+.prize-card.third {
+    background: #cd7f32;
 }
 
 .prize-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
 }
 
 .prize-card.first:hover {
     transform: scale(1.15);
 }
-.prize-card.first { background: #ffd700; }
-.prize-card.second { background: #c0c0c0; }
-.prize-card.third { background: #cd7f32; }
-
 
 /* Registration Section */
 .registration {
     background: linear-gradient(135deg, var(--color-purple-900), var(--color-purple-800));
     color: white;
-    padding: 4rem 0;
+    padding: 4rem 1rem;
     position: relative;
 }
 
@@ -265,16 +278,17 @@ body {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(8px);
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 2rem 1rem;
     margin-top: 2.5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
+    justify-content: center;
 }
 
 .qr-section {
-    flex: 1;
-    min-width: 300px;
+    flex: 1 1 280px;
+    min-width: 280px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -282,7 +296,7 @@ body {
 
 .qr-code {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem;
     border-radius: 0.5rem;
     width: 12rem;
     height: 12rem;
@@ -292,8 +306,8 @@ body {
 }
 
 .instructions {
-    flex: 2;
-    min-width: 300px;
+    flex: 2 1 320px;
+    min-width: 320px;
 }
 
 .steps {
@@ -348,7 +362,7 @@ body {
 
 /* Coordinators Section */
 .coordinators {
-    padding: 4rem 0;
+    padding: 4rem 1rem;
     background: var(--color-gray-50);
 }
 
@@ -371,7 +385,7 @@ body {
 
 .coordinator-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
 }
 
@@ -382,29 +396,32 @@ body {
     display: flex;
     align-items: start;
     gap: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: all 0.3s;
 }
 
 .coordinator-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
 }
 
 .coordinator-card .info h4 {
     margin-bottom: 0.25rem;
+    font-size: 1.125rem;
 }
 
 .coordinator-card .info p {
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    font-size: 0.95rem;
 }
 
 .coordinator-card .info a {
     color: var(--color-purple-700);
     text-decoration: none;
     transition: color 0.3s;
+    font-size: 0.95rem;
 }
 
 .coordinator-card .info a:hover {
@@ -415,12 +432,12 @@ body {
 .footer {
     background: var(--color-gray-900);
     color: var(--color-gray-300);
-    padding: 3rem 0;
+    padding: 3rem 1rem;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -490,42 +507,73 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 568px) {
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
     .event-title {
         font-size: 2.5rem;
+        padding: 0 0.5rem;
     }
-
     .event-subtitle {
         font-size: 1.5rem;
+        padding: 0 0.5rem;
     }
-
     .registration-card {
         flex-direction: column;
+        gap: 1.5rem;
     }
-
-    .qr-section {
-        width: 100%;
+    .qr-section, .instructions {
+        min-width: 100%;
     }
-
     .prize-card.first {
         transform: none;
     }
-
     .prize-card.first:hover {
         transform: scale(1.05);
     }
 }
 
+/* Small devices (mobile phones, 480px and down) */
 @media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
     .container {
         padding: 0 0.75rem;
     }
-
     .section-title {
-        font-size: 1.875rem;
+        font-size: 1.5rem;
     }
-
     .detail-card {
         padding: 1rem;
+    }
+    .event-title {
+        font-size: 2rem;
+    }
+    .event-subtitle {
+        font-size: 1.25rem;
+    }
+    .cta-button {
+        padding: 0.5rem 1.5rem;
+        font-size: 1rem;
+        position: static;
+        margin: 1rem auto;
+        display: block;
+        max-width: fit-content;
+    }
+    .prizes-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .prize-card {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    .coordinator-cards {
+        grid-template-columns: 1fr;
     }
 }
